@@ -27,6 +27,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "gsap": "^3.10.4",
     "three": "^0.139.0"
   }
 }
