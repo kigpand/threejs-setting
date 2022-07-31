@@ -39,13 +39,22 @@ export default function example() {
     const controls = new OrbitControls(camera, renderer.domElement);
 
 	// Mesh
-	const geometry = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
-    // 조명에 영향을 받지 않음
-	const material = new THREE.MeshBasicMaterial({
+    // MeshBasicMaterial을 제외한 나머지 material은 조명이 꼭 있어야함.
+	const geometry = new THREE.SphereGeometry(1, 16, 16);
+	// 하이라이트, 반사광 없는 재질
+    const material = new THREE.MeshLambertMaterial({
 		color: 'hotpink',
 	});
+    // 하이라이트 반사광 표현 가능
+    const material2 = new THREE.MeshPhongMaterial({
+		color: 'orange',
+        shininess: 1000
+	});
 	const mesh = new THREE.Mesh(geometry, material);
-	scene.add(mesh);
+    mesh.position.x = -1.5;
+    const mesh2 = new THREE.Mesh(geometry, material2);
+    mesh2.position.x = 1.5;
+	scene.add(mesh, mesh2);
 
 	// 그리기
 	const clock = new THREE.Clock();
