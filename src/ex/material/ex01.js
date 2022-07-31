@@ -40,6 +40,7 @@ export default function example() {
 
 	// Mesh
 	const geometry = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
+    // 조명에 영향을 받지 않음
 	const material = new THREE.MeshBasicMaterial({
 		color: 'hotpink',
 	});
